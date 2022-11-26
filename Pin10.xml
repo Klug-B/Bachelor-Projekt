@@ -1,0 +1,77 @@
+<mujoco model="Pin10">
+
+    <compiler  meshdir="meshes"/>
+	<option gravity="0 0 -9.81"/>
+
+    <worldbody>
+		<!--Mittelpunkt Pin zur nächsten Stufe Abstand 0.2641377482 |Positionen mit 0.264 bestimmt, seitlicher Abstand
+		0.1525 | Erster Pin hat  bis Bahnende  (pos =0 0 0) 0.87m Abstand-->
+		<!-- Position sind relativ zur Kugel | Kugel steht an Foullinie | Balllauffläche 18.3 m -->
+		<!-- PINbody 10  -->
+        <body name="PIN1.10" pos="0.078 0.4575 0" euler="0 0 0">
+
+			<!-- PIN frei beweglich machen -->
+			<joint type="free"/>
+
+			<!-- Schwerpunkt und Gewichung setzten -->
+			<inertial pos="0 0 .075" mass="1.54" diaginertia=".01 .01 .01"/>
+
+			<!-- PIN zusammenfügen -->
+            <geom type="mesh" mesh="PIN (1)" material="PINWHITE" />
+			<body name="PIN2.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (2)" material="PINWHITE"/>
+			</body>
+			<body name="PIN3.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (3)" material="PINWHITE"/>
+			</body>
+			<body name="PIN4.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (4)" material="PINWHITE"/>
+			</body>
+			<body name="PIN5.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (5)" material="PINWHITE"/>
+			</body>
+			<body name="PIN6.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (6)" material="PINWHITE"/>
+			</body>
+			<body name="PIN7.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (7)" material="PINWHITE"/>
+			</body>
+			<body name="PIN8.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (8)" material="PINWHITE"/>
+			</body>
+			<body name="PIN9.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (9)" material="PINRED"/>
+			</body>
+			<body name="PIN10.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (10)" material="PINRED"/>
+			</body>
+			<body name="PIN11.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (11)" material="PINWHITE"/>
+			</body>
+			<body name="PIN12.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (12)" material="PINWHITE"/>
+			</body>
+			<body name="PIN13.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (13)" material="PINRED"/>
+			</body>
+			<body name="PIN14.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (14)" material="PINRED"/>
+			</body>
+			<body name="PIN15.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (15)" material="PINWHITE"/>
+			</body>
+			<body name="PIN16.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (16)" material="PINWHITE"/>
+			</body>
+			<body name="PIN17.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (17)" material="PINWHITE"/>
+			</body>
+			<body name="PIN18.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (18)" material="PINWHITE"/>
+			</body>
+			<body name="PIN19.10" pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="PIN (19)" material="PINWHITE"/>
+			</body>
+        </body>
+	</worldbody>
+</mujoco>

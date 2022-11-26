@@ -1,0 +1,189 @@
+
+
+<mujoco model="example">
+	
+    <compiler meshdir="meshes"/>
+ 
+    <asset>
+		<!-- import stl files -->
+        <mesh file="Fehlwurfrinne (1).stl"/>
+		<mesh file="Fehlwurfrinne (2).stl"/>
+		<mesh file="Fehlwurfrinne (3).stl"/>
+		<mesh file="Fehlwurfrinne (4).stl"/>
+		<mesh file="Fehlwurfrinne (5).stl"/>
+		<mesh file="Fehlwurfrinne (6).stl"/>
+		<mesh file="Fehlwurfrinne (7).stl"/>
+		<mesh file="Fehlwurfrinne (8).stl"/>
+		<mesh file="Fehlwurfrinne (9).stl"/>
+		<mesh file="Fehlwurfrinne (10).stl"/>
+		<mesh file="Fehlwurfrinne (11).stl"/>
+		<mesh file="Fehlwurfrinne (12).stl"/>
+		<mesh file="Fehlwurfrinne (13).stl"/>
+		<mesh file="Fehlwurfrinne (14).stl"/>
+		<mesh file="Fehlwurfrinne (15).stl"/>
+		<mesh file="Fehlwurfrinne (16).stl"/>
+		<mesh file="Fehlwurfrinne (17).stl"/>
+		<mesh file="Fehlwurfrinne (18).stl"/>
+		<mesh file="Fehlwurfrinne (19).stl"/>
+		<mesh file="Fehlwurfrinne (20).stl"/>
+		<mesh file="Fehlwurfrinne (21).stl"/>
+		<mesh file="Fehlwurfrinne (22).stl"/>
+		<mesh file="Fehlwurfrinne (23).stl"/>
+		<mesh file="Fehlwurfrinne (24).stl"/>
+
+		
+    </asset>
+ 
+    <worldbody>
+			
+			<!-- PINbody  z normal bei 0 ist -0.0575 -->
+			<body name="Rinne1" pos="19.20 0.53 -0.0575" euler="0 90 0">
+				<!-- fehlwurfrinne zusammenfügen -->
+				<geom type="mesh" mesh="Fehlwurfrinne (1)" material="PINWHITE" />
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (2)" material="PINWHITE"/>
+				</body>
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (3)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (4)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (5)" material="PINWHITE"/>
+				</body>
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (6)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (7)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (8)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (9)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (10)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (11)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (12)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (13)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (14)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (15)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (16)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (17)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (18)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (19)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (20)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (21)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (22)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (23)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (24)" material="PINWHITE"/>
+				</body>
+			</body>
+		
+			<body name="Rinne2" pos="0 -0.53 -0.0575" euler="180 270 0">
+			
+				<!-- fehlwurfrinne zusammenfügen -->
+				<geom type="mesh" mesh="Fehlwurfrinne (1)" material="PINWHITE" />
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (2)" material="PINWHITE"/>
+				</body>
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (3)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (4)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (5)" material="PINWHITE"/>
+				</body>
+				<body pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (6)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+				<geom type="mesh" mesh="Fehlwurfrinne (7)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (8)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (9)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (10)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (11)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (12)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (13)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (14)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (15)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (16)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (17)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (18)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (19)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (20)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (21)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (22)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (23)" material="PINWHITE"/>
+				</body>
+				<body  pos="0 0 0" euler="0 0 0">
+					<geom type="mesh" mesh="Fehlwurfrinne (24)" material="PINWHITE"/>
+				</body>
+			</body>
+	</worldbody>
+</mujoco>

@@ -1,0 +1,54 @@
+<mujoco>
+    <include file="Pin1.xml"/>
+    <include file="Pin2.xml"/>
+	<include file="Pin3.xml"/>
+	<include file="Pin4.xml"/>
+	<include file="Pin5.xml"/>
+	<include file="Pin6.xml"/>
+	<include file="Pin7.xml"/>
+	<include file="Pin8.xml"/>
+	<include file="Pin9.xml"/>
+	<include file="Pin10.xml"/>
+    <include file="Bowlingball.xml"/>
+    <include file="Fehlwurfrinne.xml"/>
+	<compiler meshdir="meshes"/>
+	<option gravity="0 0 -9.81"/>
+
+	<asset>
+		<!-- import stl files -->
+        <mesh file="PIN (1).stl"/>
+	    <mesh file="PIN (2).stl"/>
+	    <mesh file="PIN (3).stl"/>
+	    <mesh file="PIN (4).stl"/>
+	    <mesh file="PIN (5).stl"/>
+	    <mesh file="PIN (6).stl"/>
+	    <mesh file="PIN (7).stl"/>
+	    <mesh file="PIN (8).stl"/>
+	    <mesh file="PIN (9).stl"/>
+	    <mesh file="PIN (10).stl"/>
+	    <mesh file="PIN (11).stl"/>
+	    <mesh file="PIN (12).stl"/>
+	    <mesh file="PIN (13).stl"/>
+	    <mesh file="PIN (14).stl"/>
+	    <mesh file="PIN (15).stl"/>
+	    <mesh file="PIN (16).stl"/>
+		<mesh file="PIN (17).stl"/>
+	    <mesh file="PIN (18).stl"/>
+	    <mesh file="PIN (19).stl"/>
+
+		<!-- material für Aussenhülle der PINS -->
+		<material name="PINWHITE" rgba="1 1 1 1"/>
+		<material name="PINRED" rgba="1 .3 0 1"/>
+    </asset>
+
+    <worldbody>
+        <!-- light -->
+        <light directional="true" pos="-0.5 0.5 3" dir="0 0 -1" />
+        <!-- floor -->
+        <geom name="box" pos="9.5 0 0" size="10 0.53 0.0000000001" type="plane" rgba="1 0.83 0.61 0.5"/>
+		<body name="prevcamera" pos="-3 -3 2">
+        	<camera name="prevcamera" pos="0 0 0" xyaxes="1 -2 0 1 -1 2" fovy="50"/>
+        </body>
+    </worldbody>
+
+</mujoco>

@@ -1,0 +1,13 @@
+<mujoco>
+    <compiler meshdir="meshes"/>
+    <worldbody>
+        <body name="Kugel" pos="19.2 0 0.109" euler="0 0 0">
+            <inertial pos="0 0 0" mass="7.25" diaginertia="0.001 0.001 0.001"/>
+			<joint name="rotforce" type="free" pos="19.2 0 0.0545" limited="false"/>
+			<geom type="sphere" size=".109 .109 .109" rgba="255 0 0 0.5"/>
+		</body>
+    </worldbody>
+    <actuator>
+		<motor name="rotforce" joint="rotforce" gear="-7 0 0 0 0 0 " ctrllimited="true" ctrlrange="3 3.5" />
+	</actuator>
+</mujoco>
