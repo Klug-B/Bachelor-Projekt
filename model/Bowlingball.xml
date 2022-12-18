@@ -1,13 +1,13 @@
 <mujoco>
     <compiler meshdir="meshes"/>
     <worldbody>
-        <body name="Kugel" pos="19.2 0 0.109" euler="0 0 0">
+        <body name="Kugel" pos="19.2 0 0.309" euler="0 0 0">
             <joint name="rotforce" type="free" pos="19.2 0 0.0545" limited="false"/>
             <inertial pos="0 0 0" mass="7.25" diaginertia="0.001 0.001 0.001"/>
 			<geom type="sphere" size=".109 .109 .109" material="bowlingball"/>
 		</body>
     </worldbody>
-    <actuator>
+    <!--actuator>
         <motor name="rotforce" joint="rotforce" gear="-8 0 0 0.1 0.2 0 " ctrllimited="true" ctrlrange="1 4" />
-	</actuator>
+	</actuator>-->
 </mujoco>
