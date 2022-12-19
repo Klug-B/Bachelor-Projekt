@@ -30,6 +30,7 @@ class Controller:
 
     def setsecondthrow(self):
         # Teleportieren der Kegel, Pins und Kugel hier einfügen
+        # evlt abfangen
         return
 
     
