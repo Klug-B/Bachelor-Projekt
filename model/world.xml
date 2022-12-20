@@ -43,6 +43,8 @@
         <texture name="bowlingball" type="cube" file="skins/CrossMark.png"/>
         <material name="bowlingball" texture="bowlingball" specular="1" shininess="1"/>
     </asset>
+    
+    <option collision="dynamic"/>
     <worldbody>
         <!-- light -->
         <light directional="true" pos="-0.5 0.5 3" dir="0 0 -1" />
@@ -51,7 +53,5 @@
             <geom name="rollarea" type="box" pos="0 0 0" size="10 0.53 0.25" rgba="1 0.83 0.61 0.5" /> <!--rgba="1 0.83 0.61 0.5"-->
             <inertial pos="0 0 0" mass="500" diaginertia="0.001 0.001 0.001"/>
         </body>
-        <camera name="prevcamera" pos="-3.5 -5 3" xyaxes="1 -2 0 0.1 0 1" fovy="60"/> <!--xyaxes vorher1 -2 0 1 -1 2 -->
     </worldbody>
-
 </mujoco>

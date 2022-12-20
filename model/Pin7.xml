@@ -1,17 +1,16 @@
 <mujoco model="Pin7">
 
     <compiler  meshdir="meshes"/>
-	<option gravity="0 0 -9.81"/>
 
     <worldbody>
 		<!--Mittelpunkt Pin zur nächsten Stufe Abstand 0.2641377482 |Positionen mit 0.264 bestimmt, seitlicher Abstand
 		0.1525 | Erster Pin hat  bis Bahnende  (pos =0 0 0) 0.87m Abstand-->
 		<!-- Position sind relativ zur Kugel | Kugel steht an Foullinie | Balllauffläche 18.3 m -->
 		<!-- PINbody 7  -->
-        <body name="PIN1.7" pos="0.078 -0.4575 0" euler="0 0 0">
+        <body name="PIN1.7" pos="0.078 -0.4575 0" euler="0 0 0"> <!--  pos="0.078 -0.4575 0" -->
 
 			<!-- PIN frei beweglich machen -->
-			<joint type="free"/>
+			<joint name="pin7joint" type="free"/>
 
 			<!-- Schwerpunkt und Gewichung setzten -->
 			<inertial pos="0 0 .075" mass="1.54" diaginertia=".01 .01 .01"/>
@@ -74,4 +73,7 @@
 			</body>
         </body>
 	</worldbody>
+    <sensor>
+        <subtreecom name = "Pin7Sensor" body = "PIN1.7"/>
+    </sensor>
 </mujoco>

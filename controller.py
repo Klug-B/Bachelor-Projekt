@@ -9,6 +9,8 @@ class Controller:
     def __init__(self, model, data):
         self.model = model
         self.data = data
+        self.umgefallen = [False]*10
+        self.resetted = False
 
     # soll den die Simulation auf ihr Anfangswerte zurücksetzen
     def resetsimulation(self):
@@ -27,12 +29,37 @@ class Controller:
         
         mujoco.mj_resetDataKeyframe(self.model, self.data, 1)
         return
-
-    def setsecondthrow(self):
+    
+    def checkfalldown(self):
         # Teleportieren der Kegel, Pins und Kugel hier einfügen
-        # evlt abfangen
-        return
+        for i in range(1,11):#prüfe ob pins umgefallen
+            if self.data.sensordata[self.model.sensor("Pin"+str(i)+"Sensor").adr+2] < 0.100 and self.umgefallen[i-1] == False:
+                self.umgefallen[i-1] = True
+                #Für debugging
+                #print("Pin umgefallen -", "Pin"+str(i)+"Sensor", ", value was: ", self.data.sensordata[self.model.sensor("Pin"+str(i)+"Sensor").adr+2])
+        return self.umgefallen
 
+    
+    def setsecondthrow(self):
+        for i in range(1,11):
+            if self.umgefallen[i-1]:
+                self.data.joint("pin"+str(i)+"joint").qpos = self.model.joint("pin"+str(i)+"joint").qpos0
+                self.data.qpos[self.model.joint("pin"+str(i)+"joint").qposadr + 2] = self.model.joint("pin"+str(i)+"joint").qpos0[3] + 0.5
+            else:
+                self.data.qpos[self.model.joint("pin"+str(i)+"joint").qposadr] = self.model.joint("pin"+str(i)+"joint").qpos0[0]
+            #for j in range(1,7):
+                #self.data.qpos[self.model.joint("pin"+str(i)+"joint").qposadr + j] = self.model.joint("pin"+str(i)+"joint").qpos0[j]
+            resetted = True
+        
+        #Für debugging    
+        #print(data.qvel)
+        for i in range(len(self.data.qvel)):
+            self.data.qvel[i] = 0
+        self.data.joint("rotforce").qpos[1] = self.model.body("arm").pos[1]
+        self.data.ctrl[self.model.actuator("adhere_arm").id] = 5
+        #Für debugging    
+        #print(data.qvel)
+        return self.data
     
     # Funktion setzt die initialen Werte für die Position des Armes
     def setstartingposarm(self): 
@@ -84,3 +111,4 @@ class Controller:
     def setstartingposball(self):
         self.data.joint("rotforce").qpos[1] = self.model.body("arm").pos[1]
         return self.data.joint("rotforce").qpos
+    
