@@ -133,7 +133,7 @@ class Controller:
     # Funktion setzt rotation der Kugel
     def setrotationatstart(self):
         check_eingabe = False
-        # Fehlerabfrage wieder mit den Werten, Winkel zwischen 0<winkel<90 oder g
+        # Fehlerabfrage wieder mit den Werten, Winkel zwischen 0<winkel<90
         inputangle = input('Welche Rotation wollen sie haben? Geben sie den Winkel \n'
                            'ein den Sie haben möchten (ohne °).\nEntsprechendes Beipiel entnehmen Sie der '
                            'Readme.')
@@ -165,4 +165,25 @@ class Controller:
         self.model.geom("halterlinks").pos[2] = -2
         self.model.geom("halterrechts").pos[2] = -2
         self.model.geom("halterunten").pos[2] = -2
+        return self.model
+    
+    def setrangeofarm(self):
+        check_eingabe = False
+        # Fehlerabfrage um wie viel Grad der Arm ausgelenkt wird min 30 bis max 90 °
+        inputangle = input('Um wie viel Grad darf der Arm ausgelenkt werden?\n Geben Sie eine ganze Zahl zwischen'
+                          ' 30 und 90 ein.')
+
+        while check_eingabe == False:
+            try:
+                self.model.joint("armschwung").range[1] = (int(inputangle) / 180) * np.pi
+                if 30 <= int(inputangle) <= 90:
+                    check_eingabe = True
+                else:
+                    inputangle = input(
+                        "Die Eingabe war außerhalb des vorgegebenen Intervalls. Versuchen Sie es erneut!")
+                    check_eingabe = False
+
+            except ValueError:
+                inputangle = input("Die Eingabe hatte den falschen Datentyp. Geben Sie eine ganze Zahl zwischen"
+                                   "30 und 90 ein.")
         return self.model
