@@ -12,10 +12,10 @@ def getvectorfromangle(ang):
     cos_angle = np.around(np.cos(angle), 3)
     while a <= 200:
         a = a + 0.01
-        y[1] = a
+        y[1] = a / 2
         if cos_angle - 0.01 <= np.around(np.dot(x, y) / (2 * np.sqrt((y * y).sum())), 3) <= cos_angle + 0.01:
             break
-    return y
+    return y[1]
 
 def getquaternation(ang):
     #gibt die Drehung um die Z-Achse aus, als quaternation Winkel in Bogenmaß V einheitsvektor [cos(W/2),sin(W/2)*Vx,sin(W/2)*Vy,sin(W/2)*Vz]

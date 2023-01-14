@@ -1,4 +1,3 @@
-
 <mujoco model="Rinne">
 	
     <compiler meshdir="meshes"/>
@@ -64,7 +63,7 @@
 				<geom type="mesh" mesh="Fehlwurfrinne (23)" material="PINWHITE" solref = "0.004 1"/>
 				<geom type="mesh" mesh="Fehlwurfrinne (24)" material="PINWHITE" solref = "0.004 1"/>
 			</body>
-		<!--pos="0 -0.53 -0.09-->euler="180 270 0"
+		<!--pos="0 -0.53 -0.09-->
 			<body name="Rinne2.1" pos="0 -0.53 -0.0575" euler="180 270 0"> <!-- pos="19.20 0.53 -0.0575"-->
                 <inertial pos="0 0 0" mass="500" diaginertia="0.001 0.001 0.001"/>
 				<!-- fehlwurfrinne zusammenfügen -->

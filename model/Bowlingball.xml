@@ -1,13 +1,20 @@
 <mujoco>
     <compiler meshdir="meshes"/>
     <worldbody>
-        <body name="Kugel" pos="19.2 0 0.309" euler="0 0 0">
-            <joint name="rotforce" type="free" pos="19.2 0 0.0545" limited="false"/>
+        <body name="Kugel" pos="19.2 0 0.3" euler="0 0 0">
+            <joint name="rotforce" type="free" pos="0 0 0" limited="false"/>
+			<geom name="ball" type="sphere" size=".10 .10 .10" condim="4" material="bowlingball" />
+            <body pos="0 0 0">
+                <geom type="sphere" size="0.01"/>
+            </body>
             <inertial pos="0 0 0" mass="7.25" diaginertia="0.001 0.001 0.001"/>
-			<geom name="ball" type="sphere" size=".109 .109 .109" condim="4" material="bowlingball"/>
 		</body>
     </worldbody>
     <sensor>
         <subtreelinvel name ="BallSensorvel" body = "Kugel"/>
     </sensor>
+    <actuator>
+        <!-- bei x =1 linksrotation -->
+       <motor name="rotation" joint="rotforce" gear="0 0 0 0 -1 0" ctrllimited="true" ctrlrange="-50 50"/>
+    </actuator>
 </mujoco>

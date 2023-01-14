@@ -54,7 +54,10 @@ class Controller:
         for i in range(len(self.data.qvel)):
             self.data.qvel[i] = 0
         self.data.joint("rotforce").qpos[1] = self.model.body("arm").pos[1]
-        self.data.ctrl[self.model.actuator("adhere_arm").id] = 5
+        self.data.ctrl[self.model.actuator("adhere_arm3").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm4").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm5").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm6").id] = 10
         # Für debugging
         # print(data.qvel)
         return self.data
@@ -91,13 +94,13 @@ class Controller:
             anglepos = input("Um wie viel Grad soll der Arm zur Abwurflinie ausgelenkt sein.\n Geben Sie eine Zahl "
                              "zwischen -10 und 10 ein. \n Wie gemessen wird, entnehmen Sie der Readme.")
 
-            # Fehlerabfrage vom Wert selber und dass, ein . ist
+            # Änderung der Orientierung des Arms und ändern der Polarkoordinaten der Kugel funktioniert noch nicht richtig
             try:
                 if float(anglepos) != 0:
-                    if float(anglepos) < 0:
-                        self.model.body("arm").quat = getquaternation(270 - float(anglepos))
-                    else:
-                        self.model.body("arm").quat = getquaternation(270 - float(anglepos))
+                    self.model.body("arm").quat = getquaternation(-float(anglepos))
+                    #self.model.body("Kugel").quat = getquaternation(-float(anglepos))
+                    #self.model.body("Kugel").pos[0] = 0.1 * np.sin(float(anglepos)) + self.model.body("Kugel").pos[0]
+                    #self.model.body("Kugel").pos[1] = 0.1 * np.cos(float(anglepos)) + self.model.body("Kugel").pos[1]
                 if -10 <= float(anglepos) <= 10:
                     check_eingabe = True
                 else:
@@ -113,10 +116,10 @@ class Controller:
         # Abfangen des möglichen Eingabefehlers
         while check_eingabe == False:
             inputctrl = input("Geben Sie ein wie viel Kraft sie auf die Kugel bringen möchten!\n Sie können dabei"
-                              " Werte zwischen -100 und -1 eingeben!")
+                              " Werte zwischen 100 und 1 eingeben!")
             try:
-                self.data.ctrl[self.model.actuator("schwung").id] = inputctrl
-                if float(inputctrl) >= -100 and float(inputctrl) <= -1:
+                self.data.ctrl[self.model.actuator("schwung").id] = int(inputctrl)
+                if float(inputctrl) >= 1 and float(inputctrl) <= 100:
                     check_eingabe = True
                 else:
                     print("Der eingegebene Wert liegt außerhalb des zu betrachtenden Intervalls!")
@@ -134,20 +137,16 @@ class Controller:
     def setrotationatstart(self):
         check_eingabe = False
         # Fehlerabfrage wieder mit den Werten, Winkel zwischen 0<winkel<90
-        inputangle = input('Welche Rotation wollen sie haben? Geben sie den Winkel \n'
+        inputangle = input('Welche Rotation wollen sie haben? Geben sie den Winkel (Ganze Zahl) \n'
                            'ein den Sie haben möchten (ohne °).\nEntsprechendes Beipiel entnehmen Sie der '
                            'Readme.')
-
         while check_eingabe == False:
             try:
-                if int(inputangle) == 0:
-                    self.data.ctrl[self.model.actuator("rotation").id] = 0
-                    return self.model ,self.data
-                self.model.joint("handgelenk").axis = getvectorfromangle(inputangle)
+                #self.data.ctrl[self.model.actuator("rotation").id] = 0
                 if int(inputangle) < 0:
-                    self.data.ctrl[self.model.actuator("rotation").id] = -10
+                    self.model.actuator("rotation").gear[3] =  getvectorfromangle(int(inputangle))
                 else:
-                    self.data.ctrl[self.model.actuator("rotation").id] = 10
+                    self.model.actuator("rotation").gear[3] =  -getvectorfromangle(-int(inputangle))
                 if -90 < int(inputangle) < 90:
                     check_eingabe = True
                 else:
@@ -157,14 +156,7 @@ class Controller:
 
             except ValueError:
                 inputangle = input("Die Eingabe hatte den falschen Datentyp. Geben Sie eine ganze Zahl zwischen"
-                                   "-90 und 90 ein.")
-        return self.model, self.data
-
-    # Teleportiert Käfig von der Hand weg
-    def releasecagefromhand(self):
-        self.model.geom("halterlinks").pos[2] = -2
-        self.model.geom("halterrechts").pos[2] = -2
-        self.model.geom("halterunten").pos[2] = -2
+                                   " -90 und 90 ein.")
         return self.model
     
     def setrangeofarm(self):
@@ -175,7 +167,7 @@ class Controller:
 
         while check_eingabe == False:
             try:
-                self.model.joint("armschwung").range[1] = (int(inputangle) / 180) * np.pi
+                self.model.joint("armschwung").range[0] = ((-int(inputangle) - 10) / 180) * np.pi
                 if 30 <= int(inputangle) <= 90:
                     check_eingabe = True
                 else:
@@ -187,3 +179,29 @@ class Controller:
                 inputangle = input("Die Eingabe hatte den falschen Datentyp. Geben Sie eine ganze Zahl zwischen"
                                    "30 und 90 ein.")
         return self.model
+    
+    def releaseball(self):
+        self.data.ctrl[self.model.actuator("adhere_arm3").id] = 0
+        self.data.ctrl[self.model.actuator("adhere_arm4").id] = 0
+        self.data.ctrl[self.model.actuator("adhere_arm5").id] = 0
+        self.data.ctrl[self.model.actuator("adhere_arm6").id] = 0
+        self.data.ctrl[self.model.actuator("rotation").id] = 0
+        self.model.body("haltmagnet2").pos[1] = 20.5 
+        self.model.body("haltmagnet3").pos[1] = 20.5 
+        self.model.body("haltmagnet4").pos[1] = 20.5 
+        self.model.body("haltmagnet5").pos[1] = 20.5 
+        self.data.ctrl[self.model.actuator("schwung").id] = -5
+        return self.model, self.data
+    
+    def revertrangeofarm(self):
+        self.model.joint("armschwung").range[1] = 40 / 180 * np.pi
+        return self.model
+    
+    def startadhesion(self):
+        self.data.ctrl[self.model.actuator("schwung").id] = 5
+        self.data.ctrl[self.model.actuator("adhere_arm3").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm4").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm5").id] = 10
+        self.data.ctrl[self.model.actuator("adhere_arm6").id] = 10
+        return self.data
+    
