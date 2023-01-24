@@ -205,3 +205,31 @@ class Controller:
         self.data.ctrl[self.model.actuator("adhere_arm6").id] = 10
         return self.data
     
+    def controlFriction(self):
+        
+        pos_x = self.data.joint("rotforce").qpos[0]
+        pos_y = self.data.joint("rotforce").qpos[1]
+        
+        if (pos_x >= 18):
+            self.model.geom("rollarea").friction = 0
+        elif (pos_x < 18 and pos_x >= 15 and pos_y >= -0.5 and pos_y <= 0.5):
+            self.model.geom("rollarea").friction = 0
+        elif ((pos_x < 18 and pos_x >= 15 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):
+            self.model.geom("rollarea").friction = 1.25
+        elif (pos_x < 15 and pos_x >= 10 and pos_y >= -0.5 and pos_y <= 0.5):
+            self.model.geom("rollarea").friction = 1.25
+            self.data.ctrl[self.model.actuator("rotation").id] = 3
+        elif (pos_x < 10 and pos_x >= 5 and pos_y >= -0.5 and pos_y <= 0.5):
+            self.model.geom("rollarea").friction = 2.5
+            self.data.ctrl[self.model.actuator("rotation").id] = 0
+        elif ((pos_x < 15 and pos_x >= 5 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):
+            self.model.geom("rollarea").friction = 4
+        elif (pos_x < 5):
+            self.model.geom("rollarea").friction = 5
+        else:
+            self.model.geom("rollarea").friction = 5
+        
+        return self.model
+        
+        
+        
