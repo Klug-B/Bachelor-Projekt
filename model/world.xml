@@ -10,11 +10,12 @@
 	<include file="Pin9.xml"/>
 	<include file="Pin10.xml"/>
     <include file="Bowlingball.xml"/>
-    <include file="Fehlwurfrinne.xml"/>
+    <!--<include file="Fehlwurfrinne.xml"/>-->
+    <include file="Bowlingbahn2.0.xml"/>
     <include file="Hand.xml"/>
     
 	<compiler meshdir="meshes"/>
-    
+    <option gravity="0 0 -9.81"/>
 	<asset>
 		<!-- import stl files -->
         <mesh file="PIN (1).stl"/>
@@ -48,9 +49,5 @@
     <worldbody>
         <!-- light -->
         <light directional="true" pos="-0.5 0.5 3" dir="0 0 -1" />
-        <!-- Bowlingfläche 2/3 geölt rest nicht-->
-        <body name="floor" pos="9.5 0 -0.25">
-            <geom name="rollarea" type="box" pos="0 0 0" size="10 0.53 0.25" rgba="1 0.83 0.61 0.5" friction = "1" condim="4" solref="0.004 1"/>
-        </body>
     </worldbody>
 </mujoco>

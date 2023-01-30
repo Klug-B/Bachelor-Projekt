@@ -1,0 +1,220 @@
+<mujoco model="Bowlingbahn">
+	
+    <compiler meshdir="meshes"/>
+	<option gravity="0 0 -9.81"/>
+    
+    <asset>
+		<!-- import stl files -->	
+	
+		<mesh file="Auffang.stl" />
+		<mesh file="Auffang (1).stl" />
+		<mesh file="Auffang (2).stl" />
+		<mesh file="Auffang (3).stl" />
+		<mesh file="Auffang (4).stl" />
+		<mesh file="Auffang (5).stl" />
+		<mesh file="Auffang (6).stl" />
+		<mesh file="Auffang (7).stl" />
+		<mesh file="Auffang (8).stl" />
+		
+		<mesh file="rinne.stl" />
+		<mesh file="rinne (1).stl" />
+		<mesh file="rinne (2).stl" />
+		<mesh file="rinne (3).stl" />
+		<mesh file="rinne (4).stl" />
+		<mesh file="rinne (5).stl" />
+		<mesh file="rinne (6).stl" />
+		<mesh file="rinne (7).stl" />
+		<mesh file="rinne (8).stl" />
+		<mesh file="rinne (9).stl" />
+		<mesh file="rinne (10).stl" />
+		<mesh file="rinne (11).stl" />
+		<mesh file="rinne (12).stl" />
+		<mesh file="rinne (13).stl" />
+		<mesh file="rinne (14).stl" />
+		<mesh file="rinne (15).stl" />
+		<mesh file="rinne (16).stl" />
+		<mesh file="rinne (17).stl" />
+		<mesh file="rinne (18).stl" />
+		<mesh file="rinne (19).stl" />
+		<mesh file="rinne (20).stl" />
+		<mesh file="rinne (21).stl" />
+		<mesh file="rinne (22).stl" />
+		<mesh file="rinne (23).stl" />
+		<mesh file="rinne (24).stl" />
+		<mesh file="rinne (25).stl" />
+		<mesh file="rinne (26).stl" />
+		<mesh file="rinne (27).stl" />
+		<mesh file="rinne (28).stl" />
+		<mesh file="rinne (29).stl" />
+		<mesh file="rinne (30).stl" />
+		<mesh file="rinne (31).stl" />
+		<mesh file="rinne (32).stl" />
+		<mesh file="rinne (33).stl" />
+		<mesh file="rinne (34).stl" />
+		<mesh file="rinne (35).stl" />
+		<mesh file="rinne (36).stl" />
+		<mesh file="rinne (37).stl" />
+
+		<mesh file="bahn.stl" />
+
+		<mesh file="anlaufplattform.stl" />
+		
+		<mesh file="PinLicht.stl" />
+		<mesh file="PinLicht (1).stl" />
+		<mesh file="PinLicht (2).stl" />
+		<mesh file="PinLicht (3).stl" />
+		<mesh file="PinLicht (4).stl" />
+		<mesh file="PinLicht (5).stl" />
+		<mesh file="PinLicht (6).stl" />
+		<mesh file="PinLicht (7).stl" />
+		<mesh file="PinLicht (8).stl" />
+		<mesh file="PinLicht (9).stl" />
+
+		<mesh file="LichtWurf1.stl" />
+		<mesh file="LichtWurf2.stl" />
+		
+		<texture name="bahn" file="skins/bahn.png"/>
+		<texture name="auffang" file="skins/auffang.png"/>
+
+		
+		<material name="bahn" texture="bahn" specular="1" shininess="1"/>
+		<material name="auffang" texture="auffang" specular="1" shininess="1"/>
+		<material name="rinne" texture="bahn" specular="1" shininess="1"/>
+		
+		<material name="OFF" rgba="0 0 0 1"/>
+		<material name="ON" rgba="1 1 1 1"/>
+
+    </asset>
+
+	<worldbody>
+
+		<!-- light -->
+		<light directional="true" pos="0 0 -1" dir="0 0 -1" />
+
+		<body name="bowlingbahn" euler="0 0 90">
+
+			<body name="rinne" pos="0 0 0">
+
+				<geom type="mesh" mesh="rinne" material="rinne" />
+				<geom type="mesh" mesh="rinne (1)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (2)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (3)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (4)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (5)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (6)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (7)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (8)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (9)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (10)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (11)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (12)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (13)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (14)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (15)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (16)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (17)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (18)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (19)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (20)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (21)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (22)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (23)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (24)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (25)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (26)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (27)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (28)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (29)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (30)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (31)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (32)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (33)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (34)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (35)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (36)" material="rinne"  />
+				<geom type="mesh" mesh="rinne (37)" material="rinne"  />
+			</body>
+
+
+			<body name="bahn">
+
+				<geom name="rollarea" type="mesh" mesh="bahn" material="bahn" condim="4" /> <!--solref="0.02 2"-->
+
+			</body>
+
+
+			<body name="anlaufplattform">
+
+				<geom type="mesh" mesh="anlaufplattform" material="bahn" condim="4" />
+
+			</body>
+
+
+			<body name="Auffang">
+
+				<geom type="mesh" mesh="Auffang" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (1)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (2)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (3)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (4)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (5)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (6)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (7)" material="auffang" condim="1" priority="1"/>
+				<geom type="mesh" mesh="Auffang (8)" material="auffang" condim="1" priority="1"/>
+
+			</body>
+
+
+			<body name="PinLicht1" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht" material="ON"/>
+			</body>
+
+			<body name="PinLicht2" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (1)" material="ON"/>
+			</body>
+
+			<body name="PinLicht3" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (2)" material="OFF"/>
+			</body>
+
+			<body name="PinLicht4" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (3)" material="OFF"/>
+			</body>
+
+			<body name="PinLicht5" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (4)" material="ON"/>
+			</body>
+
+			<body name="PinLicht6" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (5)" material="OFF"/>
+			</body>
+
+			<body name="PinLicht7" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (6)" material="ON"/>
+			</body>
+
+			<body name="PinLicht8" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (7)" material="OFF"/>
+			</body>
+
+			<body name="PinLicht9" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (8)" material="OFF"/>
+			</body>
+
+			<body name="PinLicht10" pos="0 0 0">
+				<geom type="mesh" mesh="PinLicht (9)" material="OFF"/>
+			</body>
+
+			<body name="LichtWurf1" pos="0 0 0">
+				<geom type="mesh" mesh="LichtWurf1" material="ON"/>
+			</body>
+
+			<body name="LichtWurf2" pos="0 0 0">
+				<geom type="mesh" mesh="LichtWurf2" material="OFF"/>
+			</body>
+
+		</body>
+
+	</worldbody>
+
+</mujoco>

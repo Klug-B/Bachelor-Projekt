@@ -118,8 +118,8 @@ class Controller:
             inputctrl = input("Geben Sie ein wie viel Kraft sie auf die Kugel bringen möchten!\n Sie können dabei"
                               " Werte zwischen 100 und 1 eingeben!")
             try:
-                self.data.ctrl[self.model.actuator("schwung").id] = int(inputctrl)
-                if float(inputctrl) >= 1 and float(inputctrl) <= 100:
+                self.data.ctrl[self.model.actuator("schwung").id] = inputctrl
+                if float(inputctrl) >= 1.0 and float(inputctrl) <= 100.0:
                     check_eingabe = True
                 else:
                     print("Der eingegebene Wert liegt außerhalb des zu betrachtenden Intervalls!")
@@ -209,27 +209,32 @@ class Controller:
         
         pos_x = self.data.joint("rotforce").qpos[0]
         pos_y = self.data.joint("rotforce").qpos[1]
+        pos_z = self.data.joint("rotforce").qpos[2]
         
         if (pos_x >= 18):
             self.model.geom("rollarea").friction = 0
         elif (pos_x < 18 and pos_x >= 15 and pos_y >= -0.5 and pos_y <= 0.5):
             self.model.geom("rollarea").friction = 0
         elif ((pos_x < 18 and pos_x >= 15 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):
-            self.model.geom("rollarea").friction = 1.25
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[self.model.actuator("rotation").id] + 0.0002
+            self.model.geom("rollarea").friction = 0.25
         elif (pos_x < 15 and pos_x >= 10 and pos_y >= -0.5 and pos_y <= 0.5):
-            self.model.geom("rollarea").friction = 1.25
-            self.data.ctrl[self.model.actuator("rotation").id] = 3
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[self.model.actuator("rotation").id] + 0.0004
+            self.model.geom("rollarea").friction = 0.25
         elif (pos_x < 10 and pos_x >= 5 and pos_y >= -0.5 and pos_y <= 0.5):
-            self.model.geom("rollarea").friction = 2.5
-            self.data.ctrl[self.model.actuator("rotation").id] = 0
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[self.model.actuator("rotation").id] + 0.0005
+            self.model.geom("rollarea").friction = 0.5
         elif ((pos_x < 15 and pos_x >= 5 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):
-            self.model.geom("rollarea").friction = 4
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[self.model.actuator("rotation").id] + 0.0006
+            self.model.geom("rollarea").friction = 0.75
         elif (pos_x < 5):
-            self.model.geom("rollarea").friction = 5
-        else:
-            self.model.geom("rollarea").friction = 5
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[self.model.actuator("rotation").id] + 0.0006
+            self.model.geom("rollarea").friction = 0.75
+        elif (pos_x < 0):
+            self.data.ctrl[self.model.actuator("rotation").id] = 0
+            
         
-        return self.model
+        return self.model 
         
         
         
