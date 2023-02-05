@@ -73,7 +73,7 @@
 		
 		<texture name="bahn" file="skins/bahn.png"/>
 		<texture name="auffang" file="skins/auffang.png" />
-		<texture name="anlaufplattform" file="skins/bahn.png"/>
+		<texture name="anlaufplattform" file="skins/anlaufplattform.png"/>
 
 		
 		<material name="bahn" texture="bahn" specular="1" shininess="1"/>
