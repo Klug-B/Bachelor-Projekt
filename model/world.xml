@@ -10,10 +10,11 @@
 	<include file="Pin9.xml"/>
 	<include file="Pin10.xml"/>
     <include file="Bowlingball.xml"/>
-    <!--<include file="Fehlwurfrinne.xml"/>-->
     <include file="Bowlingbahn2.0.xml"/>
     <include file="Hand.xml"/>
-    
+    <visual>
+        <global offwidth="4096" offheight="2304"/>
+    </visual>
 	<compiler meshdir="meshes"/>
     <option gravity="0 0 -9.81"/>
 	<asset>

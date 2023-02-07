@@ -144,7 +144,7 @@
 
 			<body name="bahn">
 				
-				<geom name="rollarea" type="box" size="0.53	9.6 .075" pos=" 0 -8.4  -.075" material="bahn" condim="4"/>
+				<geom name="rollarea" type="box" size="0.53	9.6 .075" pos=" 0 -8.4  -.075" material="bahn" condim="4" solref=/>
 
 			</body>
 
@@ -176,43 +176,43 @@
 
 
 			<body name="PinLicht1" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht" material="ON"/>
+				<geom name="PinLicht1" type="mesh" mesh="PinLicht" material="ON"/>
 			</body>
 
 			<body name="PinLicht2" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (1)" material="ON"/>
+				<geom name="PinLicht2" type="mesh" mesh="PinLicht (1)" material="ON"/>
 			</body>
 
 			<body name="PinLicht3" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (2)" material="ON"/>
+				<geom name="PinLicht3" type="mesh" mesh="PinLicht (2)" material="ON"/>
 			</body>
 
 			<body name="PinLicht4" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (3)" material="ON"/>
+				<geom name="PinLicht4" type="mesh" mesh="PinLicht (3)" material="ON"/>
 			</body>
 
 			<body name="PinLicht5" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (4)" material="ON"/>
+				<geom name="PinLicht5" type="mesh" mesh="PinLicht (4)" material="ON"/>
 			</body>
 
 			<body name="PinLicht6" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (5)" material="ON"/>
+				<geom name="PinLicht6" type="mesh" mesh="PinLicht (5)" material="ON"/>
 			</body>
 
 			<body name="PinLicht7" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (6)" material="ON"/>
+				<geom name="PinLicht7" type="mesh" mesh="PinLicht (6)" material="ON"/>
 			</body>
 
 			<body name="PinLicht8" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (7)" material="ON"/>
+				<geom name="PinLicht8" type="mesh" mesh="PinLicht (7)" material="ON"/>
 			</body>
 
 			<body name="PinLicht9" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (8)" material="ON"/>
+				<geom name="PinLicht9" type="mesh" mesh="PinLicht (8)" material="ON"/>
 			</body>
 
 			<body name="PinLicht10" pos="0 0 0">
-				<geom type="mesh" mesh="PinLicht (9)" material="ON"/>
+				<geom name="PinLicht10" type="mesh" mesh="PinLicht (9)" material="ON"/>
 			</body>
 
 			<body name="LichtWurf1" pos="0 0 0">
