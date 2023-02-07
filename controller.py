@@ -35,7 +35,8 @@ class Controller:
             if self.data.sensordata[self.model.sensor("Pin" + str(i) + "Sensor").adr + 2] < 0.100 and self.umgefallen[
                 i - 1] == False:
                 self.umgefallen[i - 1] = True
-        return self.umgefallen
+                self.model.geom("PinLicht" + str(i)).rgba= [0, 0, 0, 1]
+        return 
 
     def setsecondthrow(self):
         for i in range(1, 11):
@@ -116,10 +117,10 @@ class Controller:
         # Abfangen des möglichen Eingabefehlers
         while check_eingabe == False:
             inputctrl = input("Geben Sie ein wie viel Kraft sie auf die Kugel bringen möchten!\n Sie können dabei"
-                              " Werte zwischen 1 und 5 eingeben!")
+                              " Werte zwischen 100 und 1 eingeben!")
             try:
                 self.data.ctrl[self.model.actuator("schwung").id] = inputctrl
-                if float(inputctrl) >= 1.0 and float(inputctrl) <= 5.0:
+                if float(inputctrl) >= 1.0 and float(inputctrl) <= 100.0:
                     check_eingabe = True
                 else:
                     print("Der eingegebene Wert liegt außerhalb des zu betrachtenden Intervalls!")
