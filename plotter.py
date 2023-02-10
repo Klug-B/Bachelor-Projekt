@@ -16,6 +16,6 @@ class Plotter:
     # erstellt ein Koordinatensystem von dem Kurvenverlauf der Kugel
     def plotcurves(self):
         plt.plot((self.curvey),np.flip(self.curvex))
-        plt.axis([-1, 1, 0, 20.0])
+        plt.axis([-1, 1, 0.1, 20.0])
         plt.title("Bowlingkurve")
         plt.show()

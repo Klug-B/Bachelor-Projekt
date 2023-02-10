@@ -12,23 +12,6 @@ class Controller:
         self.umgefallen = [False] * 10
         self.resetted = False
 
-    # soll die Simulation auf ihre Anfangswerte zurücksetzen
-    def resetsimulation(self):
-        check_eingabe = False
-        inputlist = ["Ja", "Nein", "ja", "nein", "JA", "NEIN"]
-
-        # Abfangen des möglichen Eingabefehlers
-        while check_eingabe == False:
-
-            inputcommand = input("Wollen Sie die Simulation resetten?")
-            if inputcommand in inputlist:
-                check_eingabe = True
-            else:
-                print("Ungültige Eingabe! Bitte Ja oder Nein eingeben!")
-
-        mujoco.mj_resetDataKeyframe(self.model, self.data, 1)
-        return
-
     def checkfalldown(self):
         # Teleportieren der Kegel, Pins und Kugel hier einfügen
         for i in range(1, 11):  # prüfe ob pins umgefallen
@@ -36,31 +19,23 @@ class Controller:
                 i - 1] == False:
                 self.umgefallen[i - 1] = True
                 self.model.geom("PinLicht" + str(i)).rgba= [0, 0, 0, 1]
-        return 
-
+        return self.model
+    
+    def strike(self):
+        for i in range(1, 11):
+            if not self.umgefallen[i - 1]:
+                return False
+        return True
+                
     def setsecondthrow(self):
         for i in range(1, 11):
             if self.umgefallen[i - 1]:
                 self.data.joint("pin" + str(i) + "joint").qpos = self.model.joint("pin" + str(i) + "joint").qpos0
                 self.data.qpos[self.model.joint("pin" + str(i) + "joint").qposadr + 2] = \
-                    self.model.joint("pin" + str(i) + "joint").qpos0[3] + 0.5
-            else:
+                    self.model.joint("pin" + str(i) + "joint").qpos0[2] + 1
                 self.data.qpos[self.model.joint("pin" + str(i) + "joint").qposadr] = \
-                    self.model.joint("pin" + str(i) + "joint").qpos0[0]
+                    self.model.joint("pin" + str(i) + "joint").qpos0[0] - 0.1
 
-            resetted = True
-
-        # Für debugging
-        # print(data.qvel)
-        for i in range(len(self.data.qvel)):
-            self.data.qvel[i] = 0
-        self.data.joint("rotforce").qpos[1] = self.model.body("arm").pos[1]
-        self.data.ctrl[self.model.actuator("adhere_arm3").id] = 10
-        self.data.ctrl[self.model.actuator("adhere_arm4").id] = 10
-        self.data.ctrl[self.model.actuator("adhere_arm5").id] = 10
-        self.data.ctrl[self.model.actuator("adhere_arm6").id] = 10
-        # Für debugging
-        # print(data.qvel)
         return self.data
 
     # Funktion setzt die initialen Werte für die Position des Armes
@@ -84,31 +59,6 @@ class Controller:
                 print("Der eingegebene Wert ist nicht von einem gültigen Datentyp!")
 
         return self.model.body("arm").pos
-
-    # Funktion setzt den Arm senkrecht oder mit gewissen Winkel zur Abwurflinie
-    def setstartinganglefromarm(self):
-        check_eingabe = False
-
-        # Abfangen des möglichen Eingabefehlers
-        while check_eingabe == False:
-
-            anglepos = input("Um wie viel Grad soll der Arm zur Abwurflinie ausgelenkt sein.\n Geben Sie eine Zahl "
-                             "zwischen -10 und 10 ein. \n Wie gemessen wird, entnehmen Sie der Readme.")
-
-            # Änderung der Orientierung des Arms und ändern der Polarkoordinaten der Kugel funktioniert noch nicht richtig
-            try:
-                if float(anglepos) != 0:
-                    self.model.body("arm").quat = getquaternation(-float(anglepos))
-                    #self.model.body("Kugel").quat = getquaternation(-float(anglepos))
-                    #self.model.body("Kugel").pos[0] = 0.1 * np.sin(float(anglepos)) + self.model.body("Kugel").pos[0]
-                    #self.model.body("Kugel").pos[1] = 0.1 * np.cos(float(anglepos)) + self.model.body("Kugel").pos[1]
-                if -10 <= float(anglepos) <= 10:
-                    check_eingabe = True
-                else:
-                    print("Der eingegebene Wert liegt außerhalb des zu betrachtenden Intervalls!")
-            except ValueError:
-                print("Der eingegebene Wert ist nicht von einem gültigen Datentyp!")
-        return self.model
 
     # Funktion setzt die initialen Werte für die Kraft die wirken soll.
     def setstartingctrl(self):
@@ -187,10 +137,10 @@ class Controller:
         self.data.ctrl[self.model.actuator("adhere_arm5").id] = 0
         self.data.ctrl[self.model.actuator("adhere_arm6").id] = 0
         self.data.ctrl[self.model.actuator("rotation").id] = 0
-        self.model.body("haltmagnet2").pos[1] = 20.5 
-        self.model.body("haltmagnet3").pos[1] = 20.5 
-        self.model.body("haltmagnet4").pos[1] = 20.5 
-        self.model.body("haltmagnet5").pos[1] = 20.5 
+        #self.model.body("haltmagnet2").pos[1] = 20.5 
+        #self.model.body("haltmagnet3").pos[1] = 20.5 
+        #self.model.body("haltmagnet4").pos[1] = 20.5 
+        #self.model.body("haltmagnet5").pos[1] = 20.5 
         self.data.ctrl[self.model.actuator("schwung").id] = -5
         return self.model, self.data
     
