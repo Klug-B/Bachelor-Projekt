@@ -44,6 +44,8 @@
 		<material name="PINRED" rgba="1 .3 0 1"/>
 		<!-- texture und material Bowlingkugel -->
         <texture name="bowlingball" type="cube" file="skins/CrossMark.png"/>
+		<texture type="skybox" fileright="skins/right.png" fileleft="skins/left.png" fileup="skins/top.png" 
+			filedown="skins/bottom.png" filefront="skins/front.png" fileback="skins/back.png" builtin="none"/>
         <material name="bowlingball" texture="bowlingball" specular="1" shininess="1"/>
     </asset>
     

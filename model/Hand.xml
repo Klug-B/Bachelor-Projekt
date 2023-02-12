@@ -6,56 +6,35 @@
 		<!-- importieren von stl files, texuren und erstellen von materials -->	
 		<mesh file="armteil.stl" />
 		<mesh file="handteil.stl" />
-        <material name="transparent" rgba="1 0 0 1"/>
+        <material name="transparent" rgba="1 0 0 0"/>
     </asset>
     
 	<worldbody>
 
 		<body name="arm" pos="19.32 0 0.3" quat="1 0 0 0">
             <geom type="sphere" size=".05" pos="0 0 0.8"/>
-            <joint name="armschwung" type="hinge" pos="0 0 0.8" axis="0 1 0" limited="true" range="-100 10" margin=".3" /> 
-                <geom type="mesh" mesh="armteil" />
+            <joint name="armschwung" type="hinge" pos="0 0 0.8" axis="0 1 0" limited="true" range="-100 10" margin=".3"/>
+                <geom type="mesh" mesh="armteil"/>
                 <body name="hand" pos="0 0 0">    
                     <geom type="mesh" mesh="handteil"/>
                     <body name="haltmagnet2" euler="0 0 -90">
-                        <geom type="sphere" size=".01 " pos="0 -.12 -.14" material="transparent" margin="0.1" gap="0.1" />
+                        <geom type="sphere" size=".01 " pos="0 -.12 -.14" material="transparent" margin="0.1" gap="0.1"/>
                     </body>
                     <body name="haltmagnet3" euler="0 0 -90">
-                        <geom type="sphere" size=".01 " pos="0 -.12 .14" material="transparent" margin="0.1" gap="0.1" />
+                        <geom type="sphere" size=".01 " pos="0 -.12 .14" material="transparent" margin="0.1" gap="0.1"/>
                     </body>
                     <body name="haltmagnet4" euler="0 0 -90" >
-                        <geom type="sphere" size=".01 " pos=".14 -.12 0" material="transparent" margin="0.1" gap="0.1" />
+                        <geom type="sphere" size=".01 " pos=".14 -.12 0" material="transparent" margin="0.1" gap="0.1"/>
                     </body>
                     <body name="haltmagnet5" euler="0 0 -90">
-                        <geom type="sphere" size=".01 " pos="-.14 -.12 0" material="transparent" margin="0.1" gap="0.1" />
+                        <geom type="sphere" size=".01 " pos="-.14 -.12 0" material="transparent" margin="0.1" gap="0.1"/>
                     </body>
-                    <!--
-                    Zum erstellen des 6 Magneten Modells folgende auskommentierte wieder in den Code aufnehmen
-                    <body name="haltmagnet" euler="0 0 -90">
-                        <geom type="sphere" size=".01 " pos="0 -.28 0" material="transparent" margin="0.4" gap="0.4"/>
-                    </body>
-                    <body name="haltmagnet1" euler="0 0 -90">
-                        <geom type="sphere" size=".01 " pos="0 0 0" material="transparent" margin="0.4" gap="0.4"/>
-                    </body>
-                    -->
                 </body>
             </body>
-			<!--
-			Zum erstellen des 6 Magneten Modells folgende auskommentierte wieder in den Code aufnehmen
-			
-			
-			-->
-		
-			
+
 	</worldbody>
 
 	<actuator>
-		<!--
-		actuatoren fuer hinteren und forderen Magneten
-		<adhesion name="adhere_arm1" body="haltmagnet" ctrlrange="0 10" gain="300"/>
-		<adhesion name="adhere_arm2" body="haltmagnet1" ctrlrange="0 10" gain="300"/>
-
-		-->
 
 		<adhesion name="adhere_arm3" body="haltmagnet2" ctrlrange="0 10" gain="500"/>
 		<adhesion name="adhere_arm4" body="haltmagnet3" ctrlrange="0 10" gain="500"/>

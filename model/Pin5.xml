@@ -16,60 +16,60 @@
 			<inertial pos="0 0 .075" mass="1.54" diaginertia=".01 .01 .01"/>
 
 			<!-- PIN zusammenfügen -->
-            <geom type="mesh" mesh="PIN (1)" material="PINWHITE"  solref = "0.004 1" condim="3" priority="1"/>
+            <geom type="mesh" mesh="PIN (1)" material="PINWHITE"  solref = "0.004 1" condim="3" priority="2"/>
 			<body name="PIN2.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (2)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (2)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN3.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (3)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (3)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN4.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (4)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (4)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN5.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (5)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (5)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN6.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (6)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (6)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN7.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (7)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (7)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN8.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (8)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (8)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN9.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (9)" material="PINRED" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (9)" material="PINRED" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN10.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (10)" material="PINRED" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (10)" material="PINRED" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN11.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (11)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (11)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN12.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (12)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (12)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN13.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (13)" material="PINRED" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (13)" material="PINRED" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN14.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (14)" material="PINRED" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (14)" material="PINRED" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN15.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (15)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (15)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN16.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (16)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (16)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN17.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (17)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (17)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN18.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (18)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (18)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
 			<body name="PIN19.5" pos="0 0 0" euler="0 0 0">
-				<geom type="mesh" mesh="PIN (19)" material="PINWHITE" solref = "0.004 1" condim="3" priority="1"/>
+				<geom type="mesh" mesh="PIN (19)" material="PINWHITE" solref = "0.004 1" condim="3" priority="2"/>
 			</body>
         </body>
 	</worldbody>

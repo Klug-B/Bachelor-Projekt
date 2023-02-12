@@ -88,9 +88,6 @@
     </asset>
 
 	<worldbody>
-
-		<!-- licht Bahn -->
-		<light directional="true" pos="0 -9 2" dir="0 -1 -1" />
 		
 		<!-- light PINS -->
 		<light directional="true" pos="0 .6 .49" dir="0 1 -1" />
@@ -216,11 +213,11 @@
 			</body>
 
 			<body name="LichtWurf1" pos="0 0 0">
-				<geom type="mesh" mesh="LichtWurf1" material="ON"/>
+				<geom name="Lichtwurf1" type="mesh" mesh="LichtWurf1" material="ON"/>
 			</body>
 
 			<body name="LichtWurf2" pos="0 0 0">
-				<geom type="mesh" mesh="LichtWurf2" material="OFF"/>
+				<geom name="Lichtwurf2" type="mesh" mesh="LichtWurf2" material="OFF"/>
 			</body>
 
 		</body>
