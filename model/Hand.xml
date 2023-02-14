@@ -13,7 +13,7 @@
 
 		<body name="arm" pos="19.32 0 0.3" quat="1 0 0 0">
             <geom type="sphere" size=".05" pos="0 0 0.8"/>
-            <joint name="armschwung" type="hinge" pos="0 0 0.8" axis="0 1 0" limited="true" range="-100 10" margin=".3"/>
+            <joint name="armschwung" type="hinge" pos="0 0 0.8" axis="0 1 0" limited="true" range="-100 40" margin=".3"/>
                 <geom type="mesh" mesh="armteil"/>
                 <body name="hand" pos="0 0 0">    
                     <geom type="mesh" mesh="handteil"/>

@@ -101,9 +101,9 @@ class Controller:
         while check_eingabe == False:
             try:
                 if int(inputangle) < 0:
-                    self.model.actuator("rotation").gear[3] = getvectorfromangle(int(inputangle))
-                else:
                     self.model.actuator("rotation").gear[3] = -getvectorfromangle(int(inputangle))
+                else:
+                    self.model.actuator("rotation").gear[3] = getvectorfromangle(int(inputangle))
                 if -90 < int(inputangle) < 90:
                     check_eingabe = True
                 else:
@@ -149,11 +149,6 @@ class Controller:
         self.data.ctrl[self.model.actuator("schwung").id] = -5
         return self.model, self.data
 
-    # setzt den Arm zurueck auf seine urspruengliche Auslenkung
-    def revertrangeofarm(self):
-        self.model.joint("armschwung").range[1] = 40 / 180 * np.pi
-        return self.model
-
     # startet das Magnetfeld, welches die Kugel am Ball haelt
     def startadhesion(self):
         self.data.ctrl[self.model.actuator("schwung").id] = 5
@@ -172,6 +167,8 @@ class Controller:
 
         if (pos_x >= 18):
             self.model.geom("rollarea").friction = 0
+            self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[
+                                                                     self.model.actuator("rotation").id] + 0.0003
         elif (pos_x < 18 and pos_x >= 15 and pos_y >= -0.5 and pos_y <= 0.5):
             self.model.geom("rollarea").friction = 0
         elif ((pos_x < 18 and pos_x >= 15 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):

@@ -14,7 +14,6 @@
         <subtreelinvel name ="BallSensorvel" body = "Kugel"/>
     </sensor>
     <actuator>
-        <!-- bei x =1 linksrotation -->
        <motor name="rotation" joint="rotforce" gear="0 0 0 0 -1 0" ctrllimited="true" ctrlrange="-50 50"/>
     </actuator>
 </mujoco>

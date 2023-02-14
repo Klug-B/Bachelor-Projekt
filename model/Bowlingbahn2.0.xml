@@ -141,7 +141,7 @@
 
 			<body name="bahn">
 				
-				<geom name="rollarea" type="box" size="0.53	9.6 .075" pos=" 0 -8.4  -.075" material="bahn" condim="4"/>
+				<geom name="rollarea" type="box" size="0.53	9.6 .075" pos=" 0 -8.4  -.075" material="bahn" solref="0.004 1" condim="4"/>
 
 			</body>
 
