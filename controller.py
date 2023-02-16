@@ -173,7 +173,7 @@ class Controller:
             self.model.geom("rollarea").friction = 0
         elif ((pos_x < 18 and pos_x >= 15 and pos_y < -0.5) or (pos_x < 18 and pos_x >= 15 and pos_y < 0.5)):
             self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[
-                                                                     self.model.actuator("rotation").id] + 0.0005
+                                                                     self.model.actuator("rotation").id] + 0.0004
             self.model.geom("rollarea").friction = 0.25
         elif (pos_x < 15 and pos_x >= 10 and pos_y >= -0.5 and pos_y <= 0.5):
             self.data.ctrl[self.model.actuator("rotation").id] = self.data.ctrl[

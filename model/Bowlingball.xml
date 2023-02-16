@@ -3,7 +3,7 @@
     <worldbody>
         <body name="Kugel" pos="19.2 0 0.3" euler="0 0 0">
             <joint name="rotforce" type="free" pos="0 0 0" limited="false"/>
-			<geom name="ball" type="sphere" size=".10 .10 .10" material="bowlingball" condim="1"/>
+			<geom name="ball" type="sphere" size=".10 .10 .10" material="bowlingball" condim = "1"  />
             <body pos="0 0 0">
                 <geom type="sphere" size="0.01"/>
             </body>
